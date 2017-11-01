@@ -1,0 +1,66 @@
+
+        body{
+            margin: 0px;
+        }
+        
+        header,aside,footer{
+            
+            display: block;
+        }
+        .container{
+            width: 1000px;
+            margin: 0px auto;
+        }
+        
+        .headerbar{
+           width: 1000px;
+            float: left;
+        }
+        
+        .headerbar.top{
+            background: #aaaacc;
+            min-height: 100px;
+        }
+        
+        .headerbar.bottom{
+           background: #aadcaa;
+            min-height: 100px;
+        }
+        
+        .leftbar{
+            width:460px;
+            background: #aabfdf;
+            min-height: 900px;
+            float: left;
+            padding: 20px;
+        }
+        
+        .rightbar{
+           width: 460px;
+            background: rgb(214,144,0);
+            min-height: 900px;
+            float: left;
+            opacity: 0.5;
+            padding: 20px;
+        }
+        
+        label{
+            width: 250px;
+            display: block;
+      }
+table{
+    
+    width: 400px;
+    border-collapse: collapse;
+   /* border: 1px solid black;*/
+}
+
+th,td{
+    border: 2px solid black;
+    text-align: center;
+}
+
+input[type='button']{
+    
+    right: auto;
+}

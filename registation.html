@@ -1,0 +1,160 @@
+<!document html>
+
+<html>
+<head>
+<title>Registation Form</title>
+<meta charset="utf-8">   
+<link href="mystyle.css"  rel="stylesheet">  
+    
+    <script>
+        
+        var Ragistation=[];
+        
+        function init(){
+            
+            if( localStorage.studentrecord){
+                
+              Ragistation=JSON.parse(localStorage.studentrecord);
+                
+                var abc=Ragistation.length;
+                
+                for(var i=0;i<=abc;i++){
+                    
+            var firstName = Ragistation[i].namefirst;
+            var secondName = Ragistation[i].namesecond;
+            var rollNumber = Ragistation[i].numroll;
+            var subject = Ragistation[i].Subject;
+                    prepairtablecell(firstName,secondName,rollNumber,subject);
+             
+                }
+            }
+        }
+    
+        function onRegistation(){
+            
+          var firstName = document.getElementById('first').value;
+            var secondName = document.getElementById('second').value;
+            var rollNumber = document.getElementById('roll').value;
+            var subject = document.getElementById('sub').value;
+            
+            
+            var obj={namefirst:firstName,namesecond:secondName,numroll:rollNumber,Subject:subject};
+            
+            console.log(obj);
+            
+            
+            
+            Ragistation.push(obj);
+            
+            console.log(Ragistation);
+            localStorage.studentrecord=JSON.stringify(Ragistation);
+            
+            
+            
+     prepairtablecell(firstName,secondName,rollNumber,subject);
+            
+            
+            document.getElementById('first').value='';
+            document.getElementById('second').value='';
+            document.getElementById('roll').value='';
+            document.getElementById('sub').value='';
+            
+     
+            
+        }
+        
+         function prepairtablecell(firstName,secondName,rollNumber,subject)
+      {
+            var  table= document.getElementById('tab');
+            var row=table.insertRow();
+            var firstcell=row.insertCell(0);
+            var secondcell=row.insertCell(1);
+            var rollcell=row.insertCell(2);
+            var subcell=row.insertCell(3);
+            
+            firstcell.innerHTML=firstName;
+            secondcell.innerHTML=secondName;
+            rollcell.innerHTML=rollNumber;
+            subcell.innerHTML=subject;
+            
+            
+        }
+        
+        
+      
+    
+    </script>
+</head>
+
+<body onload="init()">
+    
+    <div class="container">
+        <header class="headerbar top"><h1 style="text-align: center">REGISTATION FORM</h1></header>
+        <aside class="leftbar">
+            <div>
+                <fieldset>
+                <label for="first">Firstname:</label>
+                <input type="text" placeholder="enter first name" id="first">
+                </fieldset>
+                
+                <fieldset>
+                <label for="second">Secondname:</label>
+                <input type="text" placeholder="enter second name" id="second">
+                </fieldset>
+                
+                
+                
+                <fieldset>
+                <label for="roll">ROLL NO:</label>
+                <input type="number" placeholder="enter your roll no" id="roll">
+                </fieldset>
+                
+                
+                <fieldset>
+                    <label for="sub">SUBJECT:</label>
+              <select id='sub'>
+                  
+                  <option value="math">MATHES</option>
+                  <option value="science">SCIENCE</option>
+                  <option value="history">HISTORY</option>
+                  <option value="geography">GEOGRAPHY</option>
+                    
+                    
+            </select>
+                </fieldset>
+                
+                <fieldset>
+                <input type="button" value="submit" onclick="onRegistation()">
+             </fieldset>
+            
+            </div>
+        
+        </aside>
+        <aside class="rightbar">
+            <table id="tab">
+            <thead>
+                <tr>
+                <th>FIRSTNAME</th>
+                    <th>LASTNAME</th>
+                    <th>ROLLNO</th>
+                    <th>SUBJECT</th>
+                </tr>
+                
+          </thead>
+                
+                <tbody>
+                
+                
+                </tbody>
+            
+            </table>
+        
+        </aside>
+        <footer class="headerbar bottom"></footer>
+    
+    
+    </div>
+
+
+</body>
+</html>
